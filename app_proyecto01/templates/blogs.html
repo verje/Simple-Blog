@@ -2,7 +2,13 @@
 
 <h2>Blogs</h2>
 <ul>
+  <!-- Establecemos la variable blog (objeto que podria tener otro nombre) para recorrer los registros (objetos) almacenados en modelo (tabla) Blog.
+  Dichos registros los estamos pasando a esta plantilla utilizando el objeto (variable) Blog_Objects, el cual creamos en 
+  el archivo views.py como context_object_name = "Blog_Objects" -->
   {% for blog in Blog_Objects %}
-  <li>{{ blog.name }}</li>
+  <!-- Para cada blog (elemento, objecto, item, etc) presentes en Blog_Objects-->
+  <li><h3>{{ blog.name }}</h3></li>
+  <!--  Mostramos el nombre de el Blog ya que la variable blog (objeto) hereda las propiedades (campos) de el Modelo Blog-->
+  <li>{{ blog.tagline }}</li>
   {% endfor %}
 </ul>
