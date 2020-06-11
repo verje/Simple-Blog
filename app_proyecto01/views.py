@@ -1,8 +1,5 @@
 from django.views import generic
-from django.http import HttpResponseRedirect
-from django.shortcuts import render
 from .models import Blog
-from .form_contacto import ContactForm
 
 
 class BlogsView(generic.ListView):
@@ -20,23 +17,3 @@ class BlogsView(generic.ListView):
 
 class IndexView(generic.TemplateView):
     template_name = "index.html"
-
-
-class AboutView(generic.TemplateView):
-    template_name = "about.html"
-
-
-def contact(request):
-    template_name = "contact.html"
-    if request.method == 'POST':
-        form = ContactForm(request.POST or None)
-        errors = None
-        if form.is_valid():
-            return HttpResponseRedirect("/s/")
-        if form.errors:
-            errors = form.errors
-        context = {"form": form, "errors": errors}
-        return render(request, template_name, context)
-    else:
-        form = ContactForm()
-        return render(request, template_name, {'form': form})

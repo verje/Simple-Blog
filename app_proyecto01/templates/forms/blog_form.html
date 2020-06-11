@@ -1,0 +1,21 @@
+{% extends 'base.html'%} {% load crispy_forms_tags %} {% block content %}
+<h1>New Blog</h1>
+{% if errors %}
+<!--Aqui usamos la variable errors, creada En el metodo ManageForm del archivo forms.py y pasado dentro del context -->
+<!--Este bloque if no es necesario ya que python se encarga de hacer la validacion
+    en el metodo ManageForm en la linea if form.isvalid(), 
+    pero lo agrego para que vean como pudieramos enviar un mensaje  al form-->
+<h1>Debe llenar todos los campos</h1>
+{% endif%}
+<form action="" method="post" novalidate>
+  {% csrf_token %}
+  <table>
+    {{ form | crispy }}
+    <!-- este es el objeto form, que está dentro del metodo ManageForm, metodo llamada desde forms.py-->
+    <tr>
+      <td>&nbsp;</td>
+      <td><input type="submit" value="Submit" class="btn btn-success" /></td>
+    </tr>
+  </table>
+</form>
+{% endblock %}
