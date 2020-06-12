@@ -22,7 +22,9 @@ class ContactForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(ContactForm, self).__init__(*args, **kwargs)
-        self.fields['name'].widget.attrs.update({'class': 'campo'})
+        self.fields['name'].widget.attrs.update({'class': 'form-group'})
+        self.fields['email'].widget.attrs.update({'class': 'form-group'})
+        self.fields['phone'].widget.attrs.update({'class': 'form-group'})
 
 
 def ManageForm(request):  # Creamos un metodo para manejar el formulario una vez que se haga clic en el Boton Submit. Este metodo será llamdo desde el archivo app_urls.py

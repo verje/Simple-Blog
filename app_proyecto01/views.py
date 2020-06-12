@@ -17,3 +17,7 @@ class BlogsView(generic.ListView):
 
 class IndexView(generic.TemplateView):
     template_name = "index.html"
+
+
+class PostBlogView(generic.TemplateView):
+    template_name = "post.html"

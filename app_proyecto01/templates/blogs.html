@@ -1,16 +1,48 @@
 {% extends 'base.html' %} {% block content%}
-<h1>Bienvenido a tu primer Proyecto</h1>
-
-<h2>Blogs</h2>
-<ul>
-  <!-- Establecemos la variable blog (objeto que podria tener otro nombre) para recorrer los registros (objetos) almacenados en modelo (tabla) Blog.
-  Dichos registros los estamos pasando a esta plantilla utilizando el objeto (variable) Blog_Objects, el cual creamos en 
-  el archivo views.py como context_object_name = "Blog_Objects" -->
-  {% for blog in Blog_Objects %}
-  <!-- Para cada blog (elemento, objecto, item, etc) presentes en Blog_Objects-->
-  <li><h3>{{ blog.name }}</h3></li>
-  <!--  Mostramos el nombre de el Blog ya que la variable blog (objeto) hereda las propiedades (campos) de el Modelo Blog-->
-  <li>{{ blog.tagline }}</li>
-  {% endfor %}
-</ul>
+<header
+  class="jumbotron p-4 p-md-5 text-primary rounded"
+  style="
+    background-image: url(https://image.freepik.com/vector-gratis/circulo-agua-clara-salpica-conjunto-realista_33099-1044.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+  "
+>
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="site-heading">
+          <h1 class="font-weight-bold">Clean Blog</h1>
+          <span class="subheading">A Blog Theme by Start Bootstrap</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-md-10 mx-auto">
+      <ul>
+        {% for blog in Blog_Objects %}
+        <div class="post-preview justify-content-center">
+          <a href="/post_blog">
+            <h2 class="post-title">
+              {{ blog.name }}
+            </h2>
+            <h4 class="post-subtitle">
+              Topic: {{ blog.topic }}
+            </h4>
+          </a>
+          <p class="post-meta">
+            Posted by
+            <a href="#">Guota blogger</a>
+            on September 24, 2019
+          </p>
+        </div>
+        <hr />
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>
 {%endblock%}

@@ -18,20 +18,22 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="{% static 'css/estilos.css' %}" />
-    <link rel="icon" href="{% static 'images/favicon.ico' %}" />
+    <link rel="icon" href="{% static 'images/faviconGuota.ico' %}" />
   </head>
   <body>
     <div class="container">
       <header class="blog-header py-3">
         {% include "base-components/head.html"%}
       </header>
-      {% include "base-components/navbar.html"%}
-      <div class="row justify-content-center">
-        {% block content %} {% endblock %}
+      <div>
+        {% include "base-components/navbar.html"%}
       </div>
+
+      {% block content %} {% endblock %}
+
+      <footer class="container py-5">
+        {%include "base-components/footer.html" %}
+      </footer>
     </div>
-    <footer class="container py-5">
-      {%include "base-components/footer.html" %}
-    </footer>
   </body>
 </html>

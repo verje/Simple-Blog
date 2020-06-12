@@ -6,6 +6,7 @@ urlpatterns = [
     # desde views.py llamamos a la Clase IndexView y BlogsView
     path('', views.IndexView.as_view(), name="indexview"),
     path('blogs/', views.BlogsView.as_view(), name="blogsview"),
+    path('post_blog/', views.PostBlogView.as_view(), name="blogspostview"),
     path('new_blog/', forms.ManageForm),
     # cuando la ruta sea http://127.0.0.1:8000/contacto, Inicia la magia...llamaremos del archivo
     # form.py al Metodo ManageForm para que procese el formulario que se encuentra en el archivo BlogForm.html

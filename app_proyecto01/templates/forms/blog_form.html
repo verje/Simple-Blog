@@ -7,7 +7,7 @@
     pero lo agrego para que vean como pudieramos enviar un mensaje  al form-->
 <h1>Debe llenar todos los campos</h1>
 {% endif%}
-<form action="" method="post" novalidate>
+<form class="col-12" action="" method="post" novalidate>
   {% csrf_token %}
   <table>
     {{ form | crispy }}
